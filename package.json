@@ -1,16 +1,25 @@
 {
-  "name": "nestjs-google-cloud-bigquery",
+  "name": "@vlototskyi/nestjs-google-pubsub",
   "version": "1.0.0",
   "description": "NestJS Google Cloud BigQuery Client",
   "author": "Vitalii Lototskyi",
-  "url": "https://github.com/vlototskyi/nestjs-google-cloud-bigquery#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlototskyi/nestjs-google-bigquery.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vlototskyi/nestjs-google-bigquery/issues"
+  },
+  "homepage": "https://github.com/vlototskyi/nestjs-google-bigquery",
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "postpublish": "npm run publish-npm",
+    "publish-npm": "npm publish --access public --ignore-scripts --@vlototskyi:registry='https://registry.npmjs.org'"
   },
   "dependencies": {},
   "devDependencies": {
@@ -37,5 +46,9 @@
     "@nestjs/core": "^9.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
   }
 }
