@@ -7,7 +7,10 @@ export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
       { isGlobal: true },
       (definition, extras) => {
         console.log('extras', extras);
-        return { ...definition, global: extras.isGlobal };
+        return {
+          ...definition,
+          global: extras.isGlobal !== undefined ? extras.isGlobal : true,
+        };
       },
     )
     .setClassMethodName('forRoot')
