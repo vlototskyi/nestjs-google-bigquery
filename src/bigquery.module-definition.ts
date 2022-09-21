@@ -6,7 +6,6 @@ export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
     .setExtras<{ isGlobal?: boolean }>(
       { isGlobal: true },
       (definition, extras) => {
-        console.log('extras', extras);
         return {
           ...definition,
           global: extras.isGlobal !== undefined ? extras.isGlobal : true,
